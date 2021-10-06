@@ -1,73 +1,42 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Documentación de Uso
+En el siguiente enlace puede ver la documentación del API con swagger y a la vez como interactuar con los endpoints
+[https://my41v9mvg0.execute-api.sa-east-1.amazonaws.com/dev/api](https://my41v9mvg0.execute-api.sa-east-1.amazonaws.com/dev/api)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+# Instalación
+Teniendo NodeJS instalado, procedemos a clonar el proyecto e instalar dependencias
+```
+git clone https://github.com/MarlonEnmanuel/reto-swapi-nest.git
+npm install
+```
+Nos aseguramos de tener instalado el paquete serverless de manera global.
+```
+npm install -g serverless
+```
+**Opcional:** para realizar un despliege en AWS deberá configurar sus credenciales de **IAM** con el siguiente comando.
+```
+serverless config credentials --provider aws --key [ACCESS_KEY_ID] --secret [SECRET_ACCESS_KEY]
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Puesta en Marcha
+Debe crear un archivo **.env** en la raiz del proyecto copiando y renombrando el archivo **.env.template**
 ```
+SWAPI_URL=https://swapi.py4e.com/api
+SWAPI_TIMEOUT=1000
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+DYNAMODB_REGION=sa-east-1
+DYNAMODB_ACCESSKEYID=********************
+DYNAMODB_SECRETACCESSKEY=****************************************
 ```
+**Importante:** *Debe crear un usuario IAM con roles para DynamoDB y reemplazar las Keys Access en archivo .env*
+### Para ejecutar en local con NestJS
+Ejecutar ```npm run start``` y abrir en el navegador con [http://localhost:3000/](http://localhost:3000/)
 
-## Support
+### Para ejecutar con serverless-offline
+Ejecutar ```npm run sls:offline``` y abrir en el navegador con [http://localhost:3000/dev/api](http://localhost:3000/dev/api)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Para desplegar en AWS con Serverless
+Ejecutar ```npm run sls:deploy```
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+### Para eliminar implementación
+Ejecutar ```npm run sls:remove```
