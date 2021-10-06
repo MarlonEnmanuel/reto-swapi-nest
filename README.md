@@ -41,6 +41,7 @@ Ejecutar ```npm run start``` y abrir en el navegador con [http://localhost:3000/
 ### Para eliminar implementación
 - Ejecutar ```npm run sls:remove```
 
+
 ## Sobre el proyecto
 Este aplicativo se construyó con el framework **NestJS** y escrita totalmente en **Typescript**, documentación automática con **Swagger** e integración con **Serverless Framework**.
 
