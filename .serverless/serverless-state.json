@@ -186,7 +186,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633507385529-2021-10-06T08:03:05.529Z/reto-swapi-nest-serverless.zip"
+                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633512747460-2021-10-06T09:32:27.460Z/reto-swapi-nest-serverless.zip"
               },
               "Handler": "dist/serverless/get.handler",
               "Runtime": "nodejs14.x",
@@ -211,7 +211,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633507385529-2021-10-06T08:03:05.529Z/reto-swapi-nest-serverless.zip"
+                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633512747460-2021-10-06T09:32:27.460Z/reto-swapi-nest-serverless.zip"
               },
               "Handler": "dist/serverless/post.handler",
               "Runtime": "nodejs14.x",
@@ -236,7 +236,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633507385529-2021-10-06T08:03:05.529Z/reto-swapi-nest-serverless.zip"
+                "S3Key": "serverless/reto-swapi-nest-serverless/dev/1633512747460-2021-10-06T09:32:27.460Z/reto-swapi-nest-serverless.zip"
               },
               "Handler": "dist/serverless/swagger.handler",
               "Runtime": "nodejs14.x",
@@ -254,34 +254,34 @@
               "SwaggerLogGroup"
             ]
           },
-          "GetLambdaVersion6jISh0wQYdq6PL3Y27tOQ1uhregUTdJvj3pwlfcC6W4": {
+          "GetLambdaVersiondAY93WLeyBzdno78dj6CtX6bSZOaBvoas6rtnqG8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetLambdaFunction"
               },
-              "CodeSha256": "uqr7OPo38JuQLhWiO4op7LPKl+Y5Auzj0aMuCeYzkm0="
+              "CodeSha256": "OKs2wxhGhXocnMPAOZZ/OTZ++BbIsVF8w4m9IS6XFL0="
             }
           },
-          "PostLambdaVersionCbuXYeiaiLaQhMm99zjK2hCvNaFhAaQ1FCcDI1BCSP4": {
+          "PostLambdaVersionvkLBBxDdkQ2Ot6RdkV1OkuNEieb1syd8gEaCP1PjHg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostLambdaFunction"
               },
-              "CodeSha256": "uqr7OPo38JuQLhWiO4op7LPKl+Y5Auzj0aMuCeYzkm0="
+              "CodeSha256": "OKs2wxhGhXocnMPAOZZ/OTZ++BbIsVF8w4m9IS6XFL0="
             }
           },
-          "SwaggerLambdaVersiondhWq1UFOwzvihaLi9uh6VRjGDtddehFTeQJrUDH4": {
+          "SwaggerLambdaVersion8dapAGhjGEsdAjnqqS2WIpH82kNp4ydX0EwjrSWSzDs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SwaggerLambdaFunction"
               },
-              "CodeSha256": "uqr7OPo38JuQLhWiO4op7LPKl+Y5Auzj0aMuCeYzkm0="
+              "CodeSha256": "OKs2wxhGhXocnMPAOZZ/OTZ++BbIsVF8w4m9IS6XFL0="
             }
           },
           "ApiGatewayRestApi": {
@@ -915,7 +915,7 @@
               "SwaggerLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1633507354552": {
+          "ApiGatewayDeployment1633512714741": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1098,7 +1098,7 @@
           "GetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetLambdaVersion6jISh0wQYdq6PL3Y27tOQ1uhregUTdJvj3pwlfcC6W4"
+              "Ref": "GetLambdaVersiondAY93WLeyBzdno78dj6CtX6bSZOaBvoas6rtnqG8"
             },
             "Export": {
               "Name": "sls-reto-swapi-nest-serverless-dev-GetLambdaFunctionQualifiedArn"
@@ -1107,7 +1107,7 @@
           "PostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostLambdaVersionCbuXYeiaiLaQhMm99zjK2hCvNaFhAaQ1FCcDI1BCSP4"
+              "Ref": "PostLambdaVersionvkLBBxDdkQ2Ot6RdkV1OkuNEieb1syd8gEaCP1PjHg"
             },
             "Export": {
               "Name": "sls-reto-swapi-nest-serverless-dev-PostLambdaFunctionQualifiedArn"
@@ -1116,7 +1116,7 @@
           "SwaggerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SwaggerLambdaVersiondhWq1UFOwzvihaLi9uh6VRjGDtddehFTeQJrUDH4"
+              "Ref": "SwaggerLambdaVersion8dapAGhjGEsdAjnqqS2WIpH82kNp4ydX0EwjrSWSzDs"
             },
             "Export": {
               "Name": "sls-reto-swapi-nest-serverless-dev-SwaggerLambdaFunctionQualifiedArn"
@@ -1263,7 +1263,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GetLambdaVersion6jISh0wQYdq6PL3Y27tOQ1uhregUTdJvj3pwlfcC6W4"
+        "versionLogicalId": "GetLambdaVersiondAY93WLeyBzdno78dj6CtX6bSZOaBvoas6rtnqG8"
       },
       "post": {
         "handler": "dist/serverless/post.handler",
@@ -1282,7 +1282,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "PostLambdaVersionCbuXYeiaiLaQhMm99zjK2hCvNaFhAaQ1FCcDI1BCSP4"
+        "versionLogicalId": "PostLambdaVersionvkLBBxDdkQ2Ot6RdkV1OkuNEieb1syd8gEaCP1PjHg"
       },
       "swagger": {
         "handler": "dist/serverless/swagger.handler",
@@ -1343,7 +1343,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "SwaggerLambdaVersiondhWq1UFOwzvihaLi9uh6VRjGDtddehFTeQJrUDH4"
+        "versionLogicalId": "SwaggerLambdaVersion8dapAGhjGEsdAjnqqS2WIpH82kNp4ydX0EwjrSWSzDs"
       }
     },
     "resources": {
@@ -1413,7 +1413,7 @@
     "artifact": "C:\\Users\\Enmanuel\\Documents\\RetoTecnico\\reto-swapi-nest\\.serverless\\reto-swapi-nest-serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/reto-swapi-nest-serverless/dev/1633507385529-2021-10-06T08:03:05.529Z",
+    "artifactDirectoryName": "serverless/reto-swapi-nest-serverless/dev/1633512747460-2021-10-06T09:32:27.460Z",
     "artifact": "reto-swapi-nest-serverless.zip"
   }
 }
