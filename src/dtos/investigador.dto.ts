@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty,  IsString } from "class-validator";
+import { IsNotEmpty,  IsNumber,  IsPositive,  IsString } from "class-validator";
 
 export class CrearInvestigadorDto {
     
@@ -12,6 +12,12 @@ export class CrearInvestigadorDto {
     @IsNotEmpty()
     @ApiProperty()
     public readonly apellidos: string;
+
+    @IsNumber()
+    @IsPositive()
+    @IsNotEmpty()
+    @ApiProperty()
+    public readonly edad: number;
 
     @IsString()
     @IsNotEmpty()
@@ -45,6 +51,9 @@ export class InvestigadorDto {
     
     @ApiProperty()
     public apellidos: string;
+
+    @ApiProperty()
+    public edad: number;
     
     @ApiProperty()
     public titulo: string;

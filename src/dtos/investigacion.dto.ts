@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean, IsDateString, IsNotEmpty, IsString } from "class-validator";
+import { IsBoolean, IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
 
 export class CrearInvestigacionDto {
     
@@ -11,17 +11,13 @@ export class CrearInvestigacionDto {
     @IsString()
     @IsNotEmpty()
     @ApiProperty()
-    public readonly descripcion: string;
-
-    @IsString()
-    @IsNotEmpty()
-    @ApiProperty()
     public readonly investigadorId: string;
 
-    @IsDateString()
+    @IsNumber()
+    @IsPositive()
     @IsNotEmpty()
     @ApiProperty()
-    public readonly fechaInicio: string;
+    public readonly numeroIntentos: number;
 
     @IsString()
     @IsNotEmpty()
@@ -49,13 +45,10 @@ export class InvestigacionDto {
     public titulo: string;
     
     @ApiProperty()
-    public descripcion: string;
-    
-    @ApiProperty()
     public investigadorId: string;
-    
+
     @ApiProperty()
-    public fechaInicio: string;
+    public numeroIntentos: number;
     
     @ApiProperty()
     public centroInvestigacion: string;

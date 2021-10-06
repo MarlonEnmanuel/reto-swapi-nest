@@ -54,7 +54,7 @@ export class DynamodbService {
             const res = await this.dynamo.scan({
                 TableName: 'investigadores',
             }).promise();
-            return res.Items.map(el => <InvestigadorDto>el);
+            return res.Items.map(el => this.genInvestigador(el));
         } catch (err) {
             console.log(err);
             throw new InternalServerErrorException('Error al obtener Investigadores desde BD');
@@ -102,10 +102,47 @@ export class DynamodbService {
             const res = await this.dynamo.scan({
                 TableName: 'investigaciones',
             }).promise();
-            return res.Items.map(el => <InvestigacionDto>el);
+            return res.Items.map(el => this.genInvestigacion(el));
         } catch (err) {
             console.log(err);
             throw new InternalServerErrorException('Error al obtener Investigadores desde BD');
+        }
+    }
+
+    /**
+     * Generar un InvestigadorDto desde DynamoDB
+     * @param data data de dynamo
+     * @returns InvestigadorDto
+     */
+    private genInvestigador (data:any):InvestigadorDto {
+        return {
+            id: data.id,
+            nombres: data.nombres,
+            apellidos: data.apellidos,
+            edad: data.edad,
+            titulo: data.titulo,
+            universidad: data.universidad,
+            especialidad: data.especialidad,
+            pais: data.pais,
+            fechaCreacion: data.fechaCreacion,
+        }
+    }
+
+    /**
+     * Generar un InvestigacionDto desde DynamoDB
+     * @param data data de dynamo
+     * @returns InvestigacionDto
+     */
+     private genInvestigacion (data:any):InvestigacionDto {
+        return {
+            id: data.id,
+            titulo: data.titulo,
+            investigadorId: data.investigadorId,
+            numeroIntentos: data.numeroIntentos,
+            centroInvestigacion: data.centroInvestigacion,
+            ramaCiencia: data.ramaCiencia,
+            finalizado: data.finalizado,
+            fechaCreacion: data.fechaCreacion,
         }
     }
 

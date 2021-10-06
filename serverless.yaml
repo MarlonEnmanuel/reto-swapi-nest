@@ -1,0 +1,76 @@
+service: reto-swapi-nest-serverless
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: sa-east-1
+  lambdaHashingVersion: 20201221
+
+functions:
+  get:
+    handler: dist/serverless/get.handler
+    events:
+      - http:
+          method: GET
+          path: /dynamodb/{any+}
+      - http:
+          method: GET
+          path: /swapi/{any+}
+  post:
+    handler: dist/serverless/post.handler
+    events:
+      - http:
+          method: POST
+          path: /dynamodb/{any+}
+  swagger:
+    handler: dist/serverless/swagger.handler
+    events:
+      - http:
+          method: GET
+          path: /api
+      - http:
+          method: GET
+          path: /swagger-ui.css
+      - http:
+          method: GET
+          path: /swagger-ui-bundle.js
+      - http:
+          method: GET
+          path: /swagger-ui-standalone-preset.js
+      - http:
+          method: GET
+          path: /swagger-ui-init.js
+      - http:
+          method: GET
+          path: /favicon-32x32.png
+      - http:
+          method: GET
+          path: /favicon-16x16.png
+
+resources:
+  Resources:
+    investigadoresTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: investigadores
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    investigacionesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: investigaciones
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
