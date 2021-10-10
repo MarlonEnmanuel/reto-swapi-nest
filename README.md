@@ -33,34 +33,39 @@ DYNAMODB_SECRETACCESSKEY=****************************************
 Ejecutar ```npm run start``` y abrir en el navegador con [http://localhost:3000/](http://localhost:3000/)
 
 ### Para ejecutar con serverless-offline
-- Ejecutar ```npm run sls:offline``` y abrir en el navegador con [http://localhost:3000/dev/api](http://localhost:3000/dev/api)
+    - Ejecutar ```npm run sls:offline``` y abrir en el navegador con [http://localhost:3000/dev/api](http://localhost:3000/dev/api)
 
 ### Para desplegar en AWS con Serverless
-- Ejecutar ```npm run sls:deploy```
+    - Ejecutar ```npm run sls:deploy```
 
 ### Para eliminar implementación
-- Ejecutar ```npm run sls:remove```
+    - Ejecutar ```npm run sls:remove```
+
+### Para ejecutar pruebas unitarias
+    - Ejecutar ```npm run test```
 
 
 ## Sobre el proyecto
 Este aplicativo se construyó con el framework **NestJS** y escrita totalmente en **Typescript**, documentación automática con **Swagger** e integración con **Serverless Framework**.
 
-- Contiene dos Lambdas con nombres Get y Post (*según arquitectura base indicada*) cuyos puntos de entrada están en `src/serverless/` pero exponen la lógica de los controlladores.
--- `src/controllers/get.controller.ts` agrupa las peticiones get
--- `src/controllers/post.controller.ts` agrupa las peticiones post
+    - Contiene dos Lambdas con nombres Get y Post (*según arquitectura base indicada*) cuyos puntos de entrada están en `src/serverless/` pero exponen la lógica de los controlladores.
+        -- `src/controllers/get.controller.ts` agrupa las peticiones get
+        -- `src/controllers/post.controller.ts` agrupa las peticiones post
 
-- Se crearon dos servicios para interactuar con la data.
--- `src/services/dynamo.service.ts`se comunica con DynamoDB
--- `src/services/swapi.service.ts` se comunica con SWAPI
+    - Se crearon dos servicios para interactuar con la data.
+        -- `src/services/dynamo.service.ts`se comunica con DynamoDB
+        -- `src/services/swapi.service.ts` se comunica con SWAPI
 
-- Se integra con SWAPI, utilizando los recursos de Planets y People
--- Ambos tiene endpoint para buscar por ID.
--- Ambos tienen un endopoint para listar los resultados con opción de búsqueda.
--- Debido a que SWAPI lista los datos se manera paginada, se implementó lógica para devolver la lista completa de datos, consultado cada página.
+    - Se integra con SWAPI, utilizando los recursos de Planets y People
+        -- Ambos tiene endpoint para buscar por ID.
+        -- Ambos tienen un endopoint para listar los resultados con opción de búsqueda.
+        -- Debido a que SWAPI lista los datos se manera paginada, se implementó lógica para devolver la lista completa de datos, consultado cada página.
 
-- Hace uso de DynamoDB para guardar y listar registros.
--- Se implementaron dos modelos *Investigadores* e *Investigaciones* con relación de uno a muchos.
--- Se valida la integridad de datos al crear registros.
--- Se valida la dependencia de *Investigación* mediante el atributo *investigadorId*.
+    - Hace uso de DynamoDB para guardar y listar registros.
+        -- Se implementaron dos modelos *Investigadores* e *Investigaciones* con relación de uno a muchos.
+        -- Se valida la integridad de datos al crear registros.
+        -- Se valida la dependencia de *Investigación* mediante el atributo *investigadorId*.
 
-- Despliegue en AWS con serverless (*sin errores*), creación de lambdas y tablas en dynamodb.
+    - Despliegue en AWS con serverless (*sin errores*), creación de lambdas y tablas en dynamodb.
+
+    - Unit Testing con JestJS del tipo End To End

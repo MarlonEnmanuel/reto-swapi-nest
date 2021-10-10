@@ -25,6 +25,7 @@ describe('Get Controller', () => {
 
     describe('Planetas SWAPI /swapi/planetas', () => {
         
+        // se desactivo por saturacion en SWAPI
         test.skip('Listar Planetas', async () => {
             const resp = await request(app.getHttpServer())
                                 .get('/swapi/planetas')
@@ -53,6 +54,7 @@ describe('Get Controller', () => {
 
     describe('Personajes SWAPI /swapi/personas', () => {
         
+        // se desactivo por saturacion en SWAPI
         test.skip('Listar Personajes', async () => {
             const resp = await request(app.getHttpServer())
                                 .get('/swapi/personas')
