@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { DynamoDB } from 'aws-sdk';
-import { CrearInvestigacionDto, InvestigacionDto } from 'src/dtos/investigacion.dto';
-import { CrearInvestigadorDto, InvestigadorDto } from 'src/dtos/investigador.dto';
+import { CrearInvestigacionDto, InvestigacionDto } from '../dtos/investigacion.dto';
+import { CrearInvestigadorDto, InvestigadorDto } from '../dtos/investigador.dto';
 import { v4 as uuid} from 'uuid';
 
 /**

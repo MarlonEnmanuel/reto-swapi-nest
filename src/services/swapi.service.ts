@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { AxiosResponse } from '@nestjs/common/node_modules/axios';
 import axios, { AxiosInstance } from 'axios';
-import { SwapiList, SwapiPeople, SwapiPeopleEspDto, SwapiPlanet, SwapiPlanetEspDto } from 'src/dtos/swapi.dto';
+import { SwapiList, SwapiPeople, SwapiPeopleEspDto, SwapiPlanet, SwapiPlanetEspDto } from '../dtos/swapi.dto';
 
 /**
  * Lógica para interactuar con SWAPI
@@ -114,7 +114,7 @@ export class SwapiService {
      * @param planet Instancia de Planet original
      * @returns Instancia de Planet en Español
      */
-    private planetToEsp (planet:SwapiPlanet):SwapiPlanetEspDto {
+    public planetToEsp (planet:SwapiPlanet):SwapiPlanetEspDto {
         const residentes = planet.residents.map(el => this.extractId(el));
         const peliculas = planet.films.map(el => this.extractId(el));
         return {
@@ -141,7 +141,7 @@ export class SwapiService {
      * @param people Instancia de People original
      * @returns Instancia de People español
      */
-    private peopleToEsp (people:SwapiPeople):SwapiPeopleEspDto {
+    public peopleToEsp (people:SwapiPeople):SwapiPeopleEspDto {
         const peliculas = people.films.map(el => this.extractId(el));
         const especies = people.species.map(el => this.extractId(el));
         const vehiculos = people.vehicles.map(el => this.extractId(el));

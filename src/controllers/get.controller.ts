@@ -1,7 +1,7 @@
 import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
-import { DynamodbService } from 'src/services/dynamodb.service';
-import { SwapiService } from 'src/services/swapi.service';
+import { DynamodbService } from '../services/dynamodb.service';
+import { SwapiService } from '../services/swapi.service';
 
 @Controller()
 @ApiTags('AWS Lambda GET')

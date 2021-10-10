@@ -1,8 +1,8 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CrearInvestigacionDto } from 'src/dtos/investigacion.dto';
-import { CrearInvestigadorDto } from 'src/dtos/investigador.dto';
-import { DynamodbService } from 'src/services/dynamodb.service';
+import { CrearInvestigacionDto } from '../dtos/investigacion.dto';
+import { CrearInvestigadorDto } from '../dtos/investigador.dto';
+import { DynamodbService } from '../services/dynamodb.service';
 
 @Controller()
 @ApiTags('AWS Lambda POST')
